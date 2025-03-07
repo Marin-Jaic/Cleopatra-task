@@ -21,12 +21,12 @@ public class DataProcessTest {
         //fill in your Example CSV file's path
         String pathName = "";
         File createdFile = new File(pathName);
-        Parser exampleParser = null; // TODO: fill in your parser
+        Parser exampleParser = Parser.createParser(CSVParser::new); // TODO: fill in your parser
         evaluator = exampleParser.parseFile(createdFile);
     }
 
     @Test
     public void exampleTest1() {
-        assertEquals(2100.0, evaluator.getDirectCost(), DELTA);
+        assertEquals(2100.0, evaluator.getCostByType(CostType.DIRECT), DELTA);
     }
 }
